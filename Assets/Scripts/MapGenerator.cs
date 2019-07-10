@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    public int width, height;
-    public GameObject tilePrefab;
-    public float tileOffset = 1.1f;
+    public int width, height, tilePrefabsAmmount;
+    public GameObject tilePrefab1;
+    public GameObject tilePrefab2;
+    public GameObject tilePrefab3;
+    public float tileOffset = 1f;
 
     public List<GameObject> tiles;
 
@@ -24,7 +26,27 @@ public class MapGenerator : MonoBehaviour
         { for(int y = 0; y < height; y++)
             {
                 Vector2 pos = new Vector2(x * tileOffset, y * tileOffset);
-                GameObject currentTile = (GameObject)Instantiate(tilePrefab, pos, Quaternion.identity);
+
+                GameObject currentTile;
+
+                int randomTile = Random.Range(0, tilePrefabsAmmount);
+
+                switch (randomTile)
+                {
+                    case 0:
+                        currentTile = (GameObject)Instantiate(tilePrefab1, pos, Quaternion.identity);
+                        break;
+                    case 1:
+                        currentTile = (GameObject)Instantiate(tilePrefab2, pos, Quaternion.identity);
+                        break;
+                    case 2:
+                        currentTile = (GameObject)Instantiate(tilePrefab3, pos, Quaternion.identity);
+                        break;
+                    default:
+                        currentTile = (GameObject)Instantiate(tilePrefab1, pos, Quaternion.identity);
+                        break;
+                }
+
                 tiles.Add(currentTile);
             }
         }
@@ -32,7 +54,7 @@ public class MapGenerator : MonoBehaviour
         {
             if (i % 2 == 0)
             {
-               tiles[i].GetComponent<SpriteRenderer>().color = new Color32(157, 107, 87, 255);
+               tiles[i].GetComponent<SpriteRenderer>().color = new Color32(200, 154, 135, 255);
             }
         }
     }
