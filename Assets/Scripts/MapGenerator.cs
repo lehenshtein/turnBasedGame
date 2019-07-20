@@ -5,19 +5,19 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {
     public int width, height, tilePrefabsAmmount;
+    public int recentTile;
     public GameObject tilePrefab1;
     public GameObject tilePrefab2;
     public GameObject tilePrefab3;
-    public float tileOffset = 1f;
+    public float tileOffset = 0f;
 
     public List<GameObject> tiles;
 
-    private void Update()
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
+       
             GenerateMap();
-        }
+        
     }
 
     void GenerateMap()
@@ -30,24 +30,44 @@ public class MapGenerator : MonoBehaviour
                 GameObject currentTile;
 
                 int randomTile = Random.Range(0, tilePrefabsAmmount);
+                
+                if (recentTile == randomTile && recentTile != tilePrefabsAmmount - 1)
+                {
+                    randomTile += 1;
+                }
+                if (recentTile == randomTile && recentTile == tilePrefabsAmmount - 1)
+                {
+                    randomTile -= 1;
+                }
 
                 switch (randomTile)
                 {
                     case 0:
                         currentTile = (GameObject)Instantiate(tilePrefab1, pos, Quaternion.identity);
+                        print(randomTile);
+                        Debug.Log(currentTile);
                         break;
                     case 1:
                         currentTile = (GameObject)Instantiate(tilePrefab2, pos, Quaternion.identity);
+                        print(randomTile);
+                        Debug.Log(currentTile);
                         break;
                     case 2:
                         currentTile = (GameObject)Instantiate(tilePrefab3, pos, Quaternion.identity);
+                        print(randomTile);
+                        Debug.Log(currentTile);
                         break;
                     default:
                         currentTile = (GameObject)Instantiate(tilePrefab1, pos, Quaternion.identity);
+                        print(randomTile);
+                        Debug.Log(currentTile);
                         break;
                 }
 
                 tiles.Add(currentTile);
+                
+                    recentTile = randomTile;
+               
             }
         }
         for (int i = 0; i < tiles.Count; i++)
