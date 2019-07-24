@@ -7,7 +7,10 @@ public class CharsSetter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(MapGenerator.testString);
+        GameObject gameObject = GameObject.Find("Map_Generator");
+        MapGenerator mapGenerator = gameObject.GetComponent<MapGenerator>();
+        string testStr = mapGenerator.testString;
+        Debug.Log(testStr);
     }
 
     // Update is called once per frame

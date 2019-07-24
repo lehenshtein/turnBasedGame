@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    public static string testString = "test sttttring";
+    public string testString = "test sttttring";
     public int width, height, tilePrefabsAmmount;
     public int recentTile;
     public GameObject tilePrefab1;
