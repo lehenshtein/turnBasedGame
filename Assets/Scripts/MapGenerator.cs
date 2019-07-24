@@ -70,11 +70,15 @@ public class MapGenerator : MonoBehaviour
                
             }
         }
+        ColorizeTiles();
+    }
+    void ColorizeTiles ()
+    {
         for (int i = 0; i < tiles.Count; i++)
         {
             if (i % 2 == 0)
             {
-               tiles[i].GetComponent<SpriteRenderer>().color = new Color32(200, 154, 135, 255);
+                tiles[i].GetComponent<SpriteRenderer>().color = new Color32(200, 154, 135, 255);
             }
         }
     }

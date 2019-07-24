@@ -152,6 +152,7 @@ MonoBehaviour:
   width: 5
   height: 7
   tilePrefabsAmmount: 3
+  recentTile: 0
   tilePrefab1: {fileID: 169426870654969233, guid: c19558634c49a3b49a1b3280a1361510,
     type: 3}
   tilePrefab2: {fileID: 169426870654969233, guid: 92a945ed56730f54999e8c51b324b482,
