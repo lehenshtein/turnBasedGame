@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public static string testString = "test sttttring";
     public int width, height, tilePrefabsAmmount;
     public int recentTile;
     public GameObject tilePrefab1;
@@ -44,23 +45,15 @@ public class MapGenerator : MonoBehaviour
                 {
                     case 0:
                         currentTile = (GameObject)Instantiate(tilePrefab1, pos, Quaternion.identity);
-                        print(randomTile);
-                        Debug.Log(currentTile);
                         break;
                     case 1:
                         currentTile = (GameObject)Instantiate(tilePrefab2, pos, Quaternion.identity);
-                        print(randomTile);
-                        Debug.Log(currentTile);
                         break;
                     case 2:
                         currentTile = (GameObject)Instantiate(tilePrefab3, pos, Quaternion.identity);
-                        print(randomTile);
-                        Debug.Log(currentTile);
                         break;
                     default:
                         currentTile = (GameObject)Instantiate(tilePrefab1, pos, Quaternion.identity);
-                        print(randomTile);
-                        Debug.Log(currentTile);
                         break;
                 }
 
